@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Đặc Sản Tây Nguyên - JavaScript Xử Lý Thông Báo Mua Hàng
+   Đặc Sản Tây Nguyên - JavaScript Xử Lý Thông Báo & Bộ Lọc Sản Phẩm
    File: js/main.js
    ========================================================================== */
 
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
         toast.innerHTML = `<span>${icon}</span> <span>${message}</span>`;
         toastContainer.appendChild(toast);
 
-        // Tự động ẩn và xóa sau 3.5 giây
+        // Tự động ẩn và xóa sau 3.2 giây
         setTimeout(() => {
             toast.classList.add('toast-hide');
             setTimeout(() => {
@@ -85,6 +85,46 @@ document.addEventListener('DOMContentLoaded', () => {
 
             showToast(`Cảm ơn ${name || 'bạn'} đã gửi liên hệ! Chúng tôi sẽ phản hồi sớm nhất.`, 'success');
             contactForm.reset();
+        });
+    }
+
+    // 4. Xử lý Bộ Lọc Sản Phẩm trên Trang Products (Filter System)
+    const filterForm = document.getElementById('filter-form');
+    const productItems = document.querySelectorAll('.product[data-category]');
+
+    if (filterForm && productItems.length > 0) {
+        function applyFilter() {
+            const checkedBoxes = filterForm.querySelectorAll('input[name="category"]:checked');
+            const selectedCategories = Array.from(checkedBoxes).map(cb => cb.value);
+
+            let visibleCount = 0;
+
+            productItems.forEach(item => {
+                const itemCategory = item.getAttribute('data-category');
+                
+                if (selectedCategories.length === 0 || selectedCategories.includes(itemCategory)) {
+                    item.style.display = 'flex';
+                    visibleCount++;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+
+            return visibleCount;
+        }
+
+        // Sự kiện Submit Form Lọc
+        filterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const count = applyFilter();
+            showToast(`Đã lọc danh sách sản phẩm! Tìm thấy ${count} sản phẩm phù hợp.`, 'info');
+        });
+
+        // Tự động lọc khi tích chọn checkbox
+        filterForm.querySelectorAll('input[name="category"]').forEach(checkbox => {
+            checkbox.addEventListener('change', () => {
+                applyFilter();
+            });
         });
     }
 });
