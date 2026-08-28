@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Liên Hệ - Đặc Sản Tây Nguyên</title>
+	<link rel="stylesheet" href="Css/style.css">
+</head>
+
+<body>
+	<header>
+		<div class="logo">
+			<a href="index.html">
+				<img src="images/Logo Tây Nguyên.png" alt="Logo thương hiệu Đặc Sản Tây Nguyên">
+			</a>
+		</div>
+		<h1 class="site-title">Đặc Sản Tây Nguyên</h1>
+		<p class="site-description">Chuyên Cung Cấp Nông Sản Tây Nguyên Chính Gốc</p>
+		<nav aria-label="Điều hướng chính">
+			<ul>
+				<li><a href="index.html">Trang chủ</a></li>
+				<li><a href="products.html">Sản Phẩm</a></li>
+				<li><a href="contact.html">Liên Hệ</a></li>
+			</ul>
+
+		</nav>
+	</header>
+
+	<main>
+		<section aria-label="Liên hệ">
+			<h1>Liên hệ / Yêu cầu tư vấn</h1>
+			<p>Vui lòng điền thông tin bên dưới để chúng tôi hỗ trợ tư vấn hoặc nhận đơn hàng. Những trường có dấu * là bắt buộc.</p>
+
+			<form class="contact-form" action="#" method="post" aria-label="Form liên hệ">
+				<div class="form-row">
+					<label for="fullname">Họ và tên *</label>
+					<input type="text" id="fullname" name="fullname" placeholder="Nguyễn Văn A" required>
+				</div>
+
+				<div class="form-row">
+					<label for="email">Email *</label>
+					<input type="email" id="email" name="email" placeholder="you@example.com" required>
+				</div>
+
+				<div class="form-row">
+					<label for="phone">Số điện thoại</label>
+					<input type="tel" id="phone" name="phone" placeholder="0912xxxxxx">
+				</div>
+
+				<div class="form-row">
+					<label for="product">Sản phẩm quan tâm *</label>
+					<select id="product" name="product" required>
+						<option value="">-- Chọn sản phẩm --</option>
+						<option value="ca-phe">Cà phê Robusta</option>
+						<option value="mac-ca">Hạt Mắc Ca</option>
+						<option value="hat-tieu">Hạt Tiêu</option>
+						<option value="khac">Khác</option>
+					</select>
+				</div>
+
+				<div class="form-row">
+					<label for="message">Nội dung liên hệ *</label>
+					<textarea id="message" name="message" rows="6" placeholder="Mô tả yêu cầu, số lượng, thời gian giao..." required></textarea>
+				</div>
+
+				<div class="form-row">
+					<button type="submit" class="btn">Gửi yêu cầu</button>
+				</div>
+			</form>
+
+			<section class="contact-details" aria-label="Thông tin liên hệ bổ sung">
+				<h2>Thông tin liên hệ</h2>
+				<p><strong>Địa chỉ:</strong> 123 Đường Tây Nguyên, Thành phố Đà Lắk</p>
+				<p><strong>Email:</strong> info@dacsantaynguyen.vn</p>
+				<p><strong>Điện thoại:</strong> 0909 123 456</p>
+			</section>
+		</section>
+	</main>
+
+	<footer>
+		<div class="copyright">
+			<p>&copy; 2026 Đặc Sản Tây Nguyên. Tất cả các quyền được bảo lưu.</p>
+		</div>
+	</footer>
+</body>
+
+</html>
+
