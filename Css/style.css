@@ -47,6 +47,17 @@
     }
 }
 
+@keyframes toastIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
 /* ==========================================================================
    3. RESET VÀ ĐỊNH DẠNG CƠ BẢN (BASE RESET & ACCESSIBILITY) - DÙNG CHUNG
    ========================================================================== */
@@ -592,6 +603,10 @@ textarea {
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
+textarea {
+    resize: none;
+}
+
 input:focus,
 select:focus,
 textarea:focus {
@@ -602,6 +617,42 @@ textarea:focus {
 
 .contact-details {
     margin-top: var(--space-lg);
+}
+
+/* ==========================================================================
+   12. TOAST NOTIFICATION POPUP (JS THÔNG BÁO MUA HÀNG)
+   ========================================================================== */
+.toast-container {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    pointer-events: none;
+}
+
+.toast {
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    border-left: 5px solid var(--color-secondary);
+    box-shadow: var(--shadow-lg);
+    padding: 14px 20px;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: 0.95rem;
+    pointer-events: auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: toastIn 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.toast-hide {
+    opacity: 0;
+    transform: translateY(-12px);
 }
 
 /* ==========================================================================
