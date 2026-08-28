@@ -31,38 +31,59 @@
     <!-- NỘI DUNG CHÍNH -->
     <main>
         <section class="page-intro">
-            <h2>Liên Hệ Với Chúng Tôi</h2>
-            <p>Gửi tin nhắn hoặc gọi hotline để được hỗ trợ mua đặc sản Tây Nguyên chính gốc nhanh nhất.</p>
+            <h2>Liên Hệ / Yêu Cầu Tư Vấn</h2>
+            <p>Vui lòng điền thông tin bên dưới để chúng tôi hỗ trợ tư vấn và nhận đơn hàng nông sản nhanh nhất. Những trường có dấu (*) là bắt buộc.</p>
         </section>
 
-        <section class="contact-section" aria-label="Liên hệ chúng tôi">
+        <section class="contact-section" aria-label="Biểu mẫu liên hệ">
             <form class="contact-form" action="#" method="post">
-                <div class="form-group">
-                    <label for="fullname">Họ và tên (*):</label>
-                    <input type="text" id="fullname" name="fullname" placeholder="Nhập họ tên của bạn" required>
+                <div class="form-row">
+                    <label for="fullname">Họ và tên (*)</label>
+                    <input type="text" id="fullname" name="fullname" placeholder="Nguyễn Văn A" required>
                 </div>
-                <div class="form-group">
-                    <label for="phone">Số điện thoại (*):</label>
-                    <input type="tel" id="phone" name="phone" placeholder="Nhập số điện thoại liên hệ" required>
+
+                <div class="form-row">
+                    <label for="email">Email (*)</label>
+                    <input type="email" id="email" name="email" placeholder="you@example.com" required>
                 </div>
-                <div class="form-group">
-                    <label for="email">Địa chỉ Email:</label>
-                    <input type="email" id="email" name="email" placeholder="example@domain.com">
+
+                <div class="form-row">
+                    <label for="phone">Số điện thoại (*)</label>
+                    <input type="tel" id="phone" name="phone" placeholder="0912xxxxxx" required>
                 </div>
-                <div class="form-group">
-                    <label for="message">Nội dung tin nhắn (*):</label>
-                    <textarea id="message" name="message" rows="4" placeholder="Nhập nội dung bạn cần trao đổi..." required></textarea>
+
+                <div class="form-row">
+                    <label for="product">Sản phẩm quan tâm (*)</label>
+                    <select id="product" name="product" required>
+                        <option value="">-- Chọn sản phẩm --</option>
+                        <option value="ca-phe">Cà Phê Robusta Đăk Lăk</option>
+                        <option value="mac-ca">Hạt Mắc Ca Sấy</option>
+                        <option value="hat-tieu">Hạt Tiêu Đăk Lăk</option>
+                        <option value="mat-ong">Mật Ong Rừng Tây Nguyên</option>
+                        <option value="bo-sap">Bơ Sáp Đắk Lắk</option>
+                        <option value="tho-cam">Thổ Cẩm Tây Nguyên</option>
+                        <option value="khac">Khác</option>
+                    </select>
                 </div>
-                <button type="submit" class="btn btn-secondary">Gửi liên hệ ngay</button>
+
+                <div class="form-row">
+                    <label for="message">Nội dung liên hệ (*)</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Mô tả yêu cầu tư vấn, số lượng mua, địa chỉ nhận hàng..." required></textarea>
+                </div>
+
+                <div class="form-row btn-row">
+                    <button type="submit" class="btn btn-secondary">Gửi yêu cầu liên hệ</button>
+                </div>
             </form>
         </section>
 
-        <section class="quality-commitment">
+        <section class="quality-commitment contact-details" aria-label="Thông tin liên hệ trực tiếp">
             <h2>Thông Tin Cửa Hàng & Nông Trại</h2>
             <ul>
-                <li><strong>Địa chỉ:</strong> Buôn Ma Thuột, Đắk Lắk, Việt Nam</li>
-                <li><strong>Hotline:</strong> 0987 654 321 - 0912 345 678</li>
+                <li><strong>Địa chỉ:</strong> Buôn Ma Thuột, Đắk Lắk, Tây Nguyên, Việt Nam</li>
+                <li><strong>Hotline / Zalo:</strong> 0987 654 321 - 0912 345 678</li>
                 <li><strong>Email tư vấn:</strong> dacsantaynguyen@gmail.com</li>
+                <li><strong>Giờ mở cửa:</strong> 07:30 - 20:00 (Tất cả các ngày trong tuần)</li>
             </ul>
         </section>
     </main>

@@ -546,6 +546,10 @@ footer p {
 /* ==========================================================================
    10. DÀNH RIÊNG CHO TRANG LIÊN HỆ (CONTACT.HTML) - BIỂU MẪU & INPUT FORMS
    ========================================================================== */
+.contact-section {
+    width: 100%;
+}
+
 form.contact-form {
     background-color: var(--color-surface);
     border: 1px solid var(--color-border);
@@ -554,15 +558,18 @@ form.contact-form {
     display: flex;
     flex-direction: column;
     gap: var(--space-md);
+    box-shadow: var(--shadow-sm);
+    max-width: 820px;
+    margin: 0 auto;
 }
 
-.form-group {
+.contact-form .form-row {
     display: flex;
     flex-direction: column;
     gap: var(--space-sm);
 }
 
-label {
+.contact-form label {
     font-weight: 600;
     color: var(--color-text);
     font-size: 0.95rem;
@@ -591,6 +598,10 @@ textarea:focus {
     outline: none;
     border-color: var(--color-primary);
     box-shadow: 0 0 0 3px rgba(124, 45, 18, 0.15);
+}
+
+.contact-details {
+    margin-top: var(--space-lg);
 }
 
 /* ==========================================================================
