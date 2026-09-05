@@ -8,10 +8,11 @@
     <meta name="description"
         content="Liên hệ với cửa hàng Đặc Sản Tây Nguyên để nhận tư vấn mua nông sản sạch chính gốc.">
     <link rel="stylesheet" href="Css/style.css">
+    <script src="js/main.js" defer></script>
 </head>
 
 <body>
-    <!-- HEADER GIỐNG TRANG INDEX -->
+
     <header>
         <div class="logo">
             <a href="index.html">
@@ -20,6 +21,14 @@
         </div>
         <h1 class="site-title">Đặc Sản Tây Nguyên</h1>
         <p class="site-description">Chuyên Cung Cấp Nông Sản Tây Nguyên Chính Gốc</p>
+        <div class="search-container">
+            <div class="search-box">
+                <input type="search" id="search-input" placeholder="Tìm kiếm sản phẩm..." aria-label="Tìm kiếm sản phẩm"
+                    autocomplete="off">
+                <button type="button" id="search-btn" aria-label="Tìm kiếm">🔍</button>
+            </div>
+            <div id="search-results-dropdown" class="search-results-dropdown"></div>
+        </div>
         <nav aria-label="Điều hướng chính">
             <ul>
                 <li><a href="index.html">Trang chủ</a></li>

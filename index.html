@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đặc sản Tây Nguyên - Nông Sản Chính Gốc</title>
     <link rel="stylesheet" href="Css/style.css">
+    <script src="js/main.js" defer></script>
 </head>
 
 <body>
@@ -17,11 +18,19 @@
         </div>
         <h1 class="site-title">Đặc Sản Tây Nguyên</h1>
         <p class="site-description">Chuyên Cung Cấp Nông Sản Tây Nguyên Chính Gốc</p>
+        <div class="search-container">
+            <div class="search-box">
+                <input type="search" id="search-input" placeholder="Tìm kiếm sản phẩm..." aria-label="Tìm kiếm sản phẩm" autocomplete="off">
+                <button type="button" id="search-btn" aria-label="Tìm kiếm">🔍</button>
+            </div>
+            <div id="search-results-dropdown" class="search-results-dropdown"></div>
+        </div>
         <nav aria-label="Điều hướng chính">
             <ul>
                 <li><a href="index.html">Trang chủ</a></li>
                 <li><a href="products.html">Sản Phẩm</a></li>
                 <li><a href="contact.html">Liên Hệ</a></li>
+                <li><a href="#cart-section">🛒 Giỏ Hàng (<span id="cart-count">0</span>)</a></li>
             </ul>
 
         </nav>
@@ -34,39 +43,8 @@
         </section>
         <section class="featured-products" aria-label="Sản phẩm nổi bật">
             <h2>Sản Phẩm Nổi Bật</h2>
-            <div class="product-list">
-                <article class="product">
-                    <img src="images/Cà Phê Đăk Lăk.jpg" alt="Hạt Cà Phê Robusta Đăk Lăk nguyên chất rang mộc">
-                    <h3>Cà Phê Robusta Đăk Lăk</h3>
-                    <p>hương vị đậm đà, mạnh mẽ, thể chất (body) dày và hàm lượng caffeine cao vượt trội.</p>
-                    <span class="price">170.000đ</span>
-                    <div class="product-actions">
-                        <button type="button" class="btn btn-secondary" aria-label="Mua Cà Phê Robusta Đăk Lăk">Mua hàng</button>
-                        <a href="product-detail.html?id=ca-phe-robusta" class="btn btn-outline" aria-label="Xem chi tiết Cà Phê Robusta Đăk Lăk">Xem chi tiết</a>
-                    </div>
-                </article>
-                <article class="product">
-                    <img src="images/Hạt Mắc Ca Sấy.jpg" alt="Hạt Mắc Ca Tây Nguyên nứt vỏ sấy giòn">
-                    <h3>Hạt Mắc Ca Sấy</h3>
-                    <p>là loại hạt dinh dưỡng đã qua chế biến nhiệt, có độ giòn béo, thơm ngon và giữ lại gần như
-                        toàn bộ hàm lượng dưỡng chất vốn có.</p>
-                    <span class="price">200.000đ</span>
-                    <div class="product-actions">
-                        <button type="button" class="btn btn-secondary" aria-label="Mua Hạt Mắc Ca Sấy">Mua hàng</button>
-                        <a href="product-detail.html?id=mac-ca-say" class="btn btn-outline" aria-label="Xem chi tiết Hạt Mắc Ca Sấy">Xem chi tiết</a>
-                    </div>
-                </article>
-                <article class="product">
-                    <img src="images/hạt tiêu đăk lăk.jpg" alt="Hạt Tiêu Đăk Lăk cay nồng thơm ngon">
-                    <h3>Hạt Tiêu Đăk Lăk</h3>
-                    <p>là đặc sản nổi tiếng của vùng đất Tây Nguyên nhờ chất lượng chắc mẩy, vị cay nồng và mùi thơm
-                        đặc trưng.</p>
-                    <span class="price">150.000đ</span>
-                    <div class="product-actions">
-                        <button type="button" class="btn btn-secondary" aria-label="Mua Hạt Tiêu Đăk Lăk">Mua hàng</button>
-                        <a href="product-detail.html?id=hat-tieu-dak-lak" class="btn btn-outline" aria-label="Xem chi tiết Hạt Tiêu Đăk Lăk">Xem chi tiết</a>
-                    </div>
-                </article>
+            <div class="product-list" id="product-list">
+                <!-- Sản phẩm được tự động render bằng DOM từ file main.js -->
             </div>
         </section>
 
@@ -83,6 +61,26 @@
                 <li><strong>Đổi trả dễ dàng:</strong> Hoàn tiền 100% nếu phát hiện sản phẩm lỗi hoặc kém chất lượng.
                 </li>
             </ul>
+        </section>
+
+        <!-- Khu Vực Giỏ Hàng -->
+        <section id="cart-section" class="cart-section">
+            <h2>🛒 Giỏ Hàng Của Bạn</h2>
+            <div id="cart-items-container">
+                <p class="empty-cart-msg">Giỏ hàng đang trống. Hãy chọn sản phẩm để mua sắm!</p>
+            </div>
+        </section>
+
+        <!-- Form Đặt Hàng -->
+        <section class="order-section">
+            <h2>Form Đặt Hàng</h2>
+            <form id="order-form">
+                <input type="text" id="customer-name" placeholder="Họ tên">
+                <input type="text" id="phone" placeholder="Số điện thoại">
+                <input type="text" id="address" placeholder="Địa chỉ">
+                <textarea id="note" placeholder="Ghi chú" rows="4"></textarea>
+                <button type="submit" class="btn btn-secondary">Gửi đơn hàng</button>
+            </form>
         </section>
     </main>
     <footer>

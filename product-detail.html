@@ -7,6 +7,7 @@
     <title>Chi Tiết Sản Phẩm | Đặc Sản Tây Nguyên</title>
     <meta name="description" content="Chi tiết đặc sản Tây Nguyên chính gốc, thơm ngon, đậm đà vị núi rừng đại ngàn.">
     <link rel="stylesheet" href="Css/style.css">
+    <script src="js/main.js" defer></script>
 </head>
 
 <body>
@@ -18,11 +19,20 @@
         </div>
         <h1 class="site-title">Đặc Sản Tây Nguyên</h1>
         <p class="site-description">Chuyên Cung Cấp Nông Sản Tây Nguyên Chính Gốc</p>
+        <div class="search-container">
+            <div class="search-box">
+                <input type="search" id="search-input" placeholder="Tìm kiếm sản phẩm..." aria-label="Tìm kiếm sản phẩm"
+                    autocomplete="off">
+                <button type="button" id="search-btn" aria-label="Tìm kiếm">🔍</button>
+            </div>
+            <div id="search-results-dropdown" class="search-results-dropdown"></div>
+        </div>
         <nav aria-label="Điều hướng chính">
             <ul>
                 <li><a href="index.html">Trang chủ</a></li>
                 <li><a href="products.html">Sản Phẩm</a></li>
                 <li><a href="contact.html">Liên Hệ</a></li>
+                <li><a href="#cart-section">🛒 Giỏ Hàng (<span id="cart-count">0</span>)</a></li>
             </ul>
         </nav>
     </header>
@@ -42,7 +52,9 @@
 
                 <div class="product-description">
                     <h3>Mô tả sản phẩm</h3>
-                    <p id="detail-desc">Cà Phê Robusta Đăk Lăk nguyên chất 100% được thu hái từ những trái cà phê chín mọng nhất trên thổ nhưỡng đất đỏ bazan. Hạt cà phê rang mộc theo quy trình tiêu chuẩn giúp giữ lại hương vị đậm đà, vị đắng thanh tự nhiên cùng hàm lượng caffeine cao vượt trội.</p>
+                    <p id="detail-desc">Cà Phê Robusta Đăk Lăk nguyên chất 100% được thu hái từ những trái cà phê chín
+                        mọng nhất trên thổ nhưỡng đất đỏ bazan. Hạt cà phê rang mộc theo quy trình tiêu chuẩn giúp giữ
+                        lại hương vị đậm đà, vị đắng thanh tự nhiên cùng hàm lượng caffeine cao vượt trội.</p>
                 </div>
 
                 <div class="product-specs-container">
@@ -51,17 +63,38 @@
                         <li><strong>Xuất xứ:</strong> Đăk Lăk, Tây Nguyên, Việt Nam</li>
                         <li><strong>Quy cách:</strong> Đóng gói túi 500g (Hút chân không)</li>
                         <li><strong>Hạn sử dụng:</strong> 12 tháng kể từ ngày sản xuất</li>
-                        <li><strong>Bảo quản:</strong> Đậy kín miệng túi sau khi sử dụng, bảo quản nơi khô ráo thoáng mát.</li>
+                        <li><strong>Bảo quản:</strong> Đậy kín miệng túi sau khi sử dụng, bảo quản nơi khô ráo thoáng
+                            mát.</li>
                     </ul>
                 </div>
 
                 <div class="btn-group action-buttons">
-                    <button type="button" class="btn btn-secondary">Mua hàng ngay</button>
-                    <button type="button" class="btn">Thêm vào giỏ hàng</button>
+                    <a href="#order-form" class="btn btn-secondary">Mua hàng ngay</a>
+                    <button type="button" class="btn btn-add-cart" data-id="ca-phe-robusta">Thêm vào giỏ hàng</button>
                     <a href="contact.html" class="btn btn-outline">Liên hệ tư vấn</a>
                 </div>
             </div>
         </article>
+
+        <!-- Khu Vực Giỏ Hàng -->
+        <section id="cart-section" class="cart-section">
+            <h2>🛒 Giỏ Hàng Của Bạn</h2>
+            <div id="cart-items-container">
+                <p class="empty-cart-msg">Giỏ hàng đang trống. Hãy chọn sản phẩm để mua sắm!</p>
+            </div>
+        </section>
+
+        <!-- Form Đặt Hàng -->
+        <section class="order-section">
+            <h2>Form Đặt Hàng</h2>
+            <form id="order-form">
+                <input type="text" id="customer-name" placeholder="Họ tên">
+                <input type="text" id="phone" placeholder="Số điện thoại">
+                <input type="text" id="address" placeholder="Địa chỉ">
+                <textarea id="note" placeholder="Ghi chú" rows="4"></textarea>
+                <button type="submit" class="btn btn-secondary">Gửi đơn hàng</button>
+            </form>
+        </section>
 
         <!-- SẢN PHẨM LIÊN QUAN (BAO GỒM CÁC SẢN PHẨM NỔI BẬT TỪ INDEX) -->
         <section class="featured-products related-products" aria-label="Sản phẩm liên quan">
@@ -72,11 +105,14 @@
                     <img src="images/Hạt Mắc Ca Sấy.jpg" alt="Hạt Mắc Ca Tây Nguyên nứt vỏ sấy giòn">
                     <div class="product-content">
                         <h3>Hạt Mắc Ca Sấy</h3>
-                        <p>là loại hạt dinh dưỡng đã qua chế biến nhiệt, có độ giòn béo, thơm ngon và giữ lại gần như toàn bộ hàm lượng dưỡng chất vốn có.</p>
+                        <p>là loại hạt dinh dưỡng đã qua chế biến nhiệt, có độ giòn béo, thơm ngon và giữ lại gần như
+                            toàn bộ hàm lượng dưỡng chất vốn có.</p>
                         <span class="price">200.000đ</span>
                         <div class="product-actions">
-                            <button type="button" class="btn btn-secondary" aria-label="Mua Hạt Mắc Ca Sấy">Mua hàng</button>
-                            <a href="product-detail.html?id=mac-ca-say" class="btn btn-outline" aria-label="Xem chi tiết Hạt Mắc Ca Sấy">Xem chi tiết</a>
+                            <button type="button" class="btn btn-secondary" aria-label="Mua Hạt Mắc Ca Sấy">Mua
+                                hàng</button>
+                            <a href="product-detail.html?id=mac-ca-say" class="btn btn-outline"
+                                aria-label="Xem chi tiết Hạt Mắc Ca Sấy">Xem chi tiết</a>
                         </div>
                     </div>
                 </article>
@@ -86,11 +122,14 @@
                     <img src="images/hạt tiêu đăk lăk.jpg" alt="Hạt Tiêu Đăk Lăk cay nồng thơm ngon">
                     <div class="product-content">
                         <h3>Hạt Tiêu Đăk Lăk</h3>
-                        <p>là đặc sản nổi tiếng của vùng đất Tây Nguyên nhờ chất lượng chắc mẩy, vị cay nồng và mùi thơm đặc trưng.</p>
+                        <p>là đặc sản nổi tiếng của vùng đất Tây Nguyên nhờ chất lượng chắc mẩy, vị cay nồng và mùi thơm
+                            đặc trưng.</p>
                         <span class="price">150.000đ</span>
                         <div class="product-actions">
-                            <button type="button" class="btn btn-secondary" aria-label="Mua Hạt Tiêu Đăk Lăk">Mua hàng</button>
-                            <a href="product-detail.html?id=hat-tieu-dak-lak" class="btn btn-outline" aria-label="Xem chi tiết Hạt Tiêu Đăk Lăk">Xem chi tiết</a>
+                            <button type="button" class="btn btn-secondary" aria-label="Mua Hạt Tiêu Đăk Lăk">Mua
+                                hàng</button>
+                            <a href="product-detail.html?id=hat-tieu-dak-lak" class="btn btn-outline"
+                                aria-label="Xem chi tiết Hạt Tiêu Đăk Lăk">Xem chi tiết</a>
                         </div>
                     </div>
                 </article>
@@ -103,8 +142,10 @@
                         <p>Mật ong tự nhiên màu vàng sánh, vị ngọt thanh mát từ các loài hoa rừng đại ngàn.</p>
                         <span class="price">250.000 VNĐ</span>
                         <div class="product-actions">
-                            <button type="button" class="btn btn-secondary" aria-label="Mua Mật ong rừng Tây Nguyên">Mua hàng</button>
-                            <a href="product-detail.html?id=mat-ong-rung" class="btn btn-outline" aria-label="Xem chi tiết Mật ong rừng Tây Nguyên">Xem chi tiết</a>
+                            <button type="button" class="btn btn-secondary" aria-label="Mua Mật ong rừng Tây Nguyên">Mua
+                                hàng</button>
+                            <a href="product-detail.html?id=mat-ong-rung" class="btn btn-outline"
+                                aria-label="Xem chi tiết Mật ong rừng Tây Nguyên">Xem chi tiết</a>
                         </div>
                     </div>
                 </article>
